@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Rotating without Seeing: Towards In-hand Dexterity through Touch">
+  <meta name="keywords" content="Dexterous Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Rotating without Seeing
+  </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            Rotating without Seeing:  <br> Towards In-hand Dexterity through Touch</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous Author(s)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <video id="teaser" autoplay muted loop playsinline height="100%">
+      <source src="video/teaser_compressed.mp4" type="video/mp4"/>
+    </video>
+    <p style="font-size: 18px; text-align: center">
+      We present a new system design and learning pipeline for in-hand rotation using only touching. Video speed is 1x.
+    </p>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; text-align: left">
+            Tactile information plays a critical role in human dexterity. 
+            It reveals useful contact information that may not be inferred directly from vision. 
+            In fact, humans can even perform in-hand dexterous manipulation without using vision. 
+            Can we enable the same ability for the multi-finger robot hand? 
+            In this paper, we propose to perform in-hand object rotation using only touching without seeing the object. 
+            Instead of relying on precise tactile sensing in a small region, 
+            we introduce a new system design using dense binary force sensors (touch or no touch) overlaying one side of the whole robot hand (palm, finger links, fingertips). 
+            Such a design is low-cost, giving a larger coverage of the object, and minimizing the Sim2Real gap at the same time.
+            We train an in-hand rotation policy using Reinforcement Learning on diverse objects in simulation. 
+            Relying on touch-only sensing, we can directly deploy the policy in a real robot hand and rotate novel objects that are not presented in training. 
+            Extensive ablations are performed on how tactile information help in-hand manipulation. 
+          </p>
+          <br>
+          <br>
+        </div>
+        
+        <h2 class="title is-3">Touch-only Dexterous Manipulation System</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; text-align: left">
+            Our hardware is consisted of an Allegro robotic hand with 16 low-cost FSR sensors. We train a control policy to rotate multiple objects in the simulation. 
+            Then the learned policy can directly transfer to the real and generalize to novel objects.
+          </p>
+          <div class="columns is-centered" style="background: #FDFFFF;">
+            <img src="./static/images/teaser.png" alt="teaser">
+          </div>
+          <br>
+        </div>
+
+        <h2 class="title is-3">In-hand Object Rotation In The Dark</h2>
+        <div class="content has-text-justified">
+          <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+            <div class="column has-text-centered">
+              <video autoplay muted loop playsinline width="100%">
+                <source src="video/contact_signal_compressed.mp4" type="video/mp4"/>
+              </video>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <h2 class="title is-3">Summary Video</h2>
+        <div class="content has-text-justified">
+          <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+            <div class="column has-text-centered">
+              <video controls width="100%">
+                <source src="video/summary_compressed.mp4" type="video/mp4"/>
+              </video>
+            </div>
+          </div>
+          <br>
+        </div>
+      <br/>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
