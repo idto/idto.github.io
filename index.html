@@ -24,6 +24,23 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <style>
+    .videoWrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 */
+      padding-top: 25px;
+      height: 0;
+    }
+    
+    .videoWrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
 
@@ -47,7 +64,20 @@
             Rotating without Seeing:  <br> Towards In-hand Dexterity through Touch</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              Anonymous Author(s)</span>
+              <a target="_blank" href="https://zhaohengyin.github.io/">Zhao-Heng&#160;Yin</a><sup>1,&dagger;</sup>,
+              <a target="_blank" href="https://binghao-huang.github.io/">Binghao&#160;Huang</a><sup>2,&dagger;</sup>,
+              <a target="_blank" href="https://yzqin.github.io/">Yuzhe&#160;Qin</a><sup>2</sup>,
+              <a target="_blank" href="https://cqf.io/">Qifeng&#160;Chen</a><sup>1</sup>,
+              <a target="_blank" href="https://xiaolonw.github.io/">Xiaolong&#160;Wang</a><sup>2</sup>
+          </span>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>HKUST</span> &nbsp;
+            <span class="author-block"><sup>2</sup>UC San Diego </span>
+            <br>
+            <span class="author-block"><sup>&dagger;</sup>Equal Contribution. </span>
+        </div>
+
           </div>
         </div>
       </div>
@@ -58,10 +88,10 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <video id="teaser" autoplay muted loop playsinline height="100%">
-      <source src="video/teaser_compressed.mp4" type="video/mp4"/>
+      <source src="video/web_12video_title.mov" type="video/mp4"/>
     </video>
     <p style="font-size: 18px; text-align: center">
-      We present a new system design and learning pipeline for in-hand rotation using only touching. Video speed is 1x.
+      We present a new dexterous manipulation system design and learning pipeline for in-hand rotation using only touch. Our system is able to rotate various real-world objects around different axes without seeing them. Video speed is 1x.
     </p>
   </div>
 </section>
@@ -95,9 +125,11 @@
         <h2 class="title is-3">Touch-only Dexterous Manipulation System</h2>
         <div class="content has-text-justified">
           <p style="font-size: 18px; text-align: left">
-            Our hardware is consisted of an Allegro robotic hand with 16 low-cost FSR sensors. We train a control policy to rotate multiple objects in the simulation. 
-            Then the learned policy can directly transfer to the real and generalize to novel objects.
+            Our hardware is consisted of an Allegro robotic hand with 16 low-cost force-sensing resistor (FSR) sensors. We train a control policy to rotate multiple objects in the simulation. 
+            Then the learned policy can directly transfer to the real and generalize to unseen, novel objects.
           </p>
+          <br>
+          <br>
           <div class="columns is-centered" style="background: #FDFFFF;">
             <img src="./static/images/teaser.png" alt="teaser">
           </div>
@@ -105,11 +137,55 @@
         </div>
 
         <h2 class="title is-3">In-hand Object Rotation In The Dark</h2>
+        <p style="font-size: 18px; text-align: left">
+        Since our system does not rely on vision, it can perform in-hand manipulation in the dark. 
+        This offers great advantage for the application of dexterous manipulation system in complex real-world scenarios, where obtaining reliable visual input is hard.
+        <br>
+        <br>
+        <p style="font-size: 18px; text-align: left">  
         <div class="content has-text-justified">
           <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
             <div class="column has-text-centered">
               <video autoplay muted loop playsinline width="100%">
-                <source src="video/contact_signal_compressed.mp4" type="video/mp4"/>
+                <source src="video/web_light_demo.mov" type="video/mp4"/>
+              </video>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <h2 class="title is-3">Enabling Human-Shared Control</h2>
+        <p style="font-size: 18px; text-align: left">
+        Combining various learned object rotation primitives, our system naturally provides a convenient human-shared control interface. 
+        In the following example, a human operator uses a keyboard to control our system to reorient an object.
+        <br>
+        <br>
+        </p>  
+        <div class="content has-text-justified">
+          <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+            <div class="column has-text-centered">
+              <video autoplay muted loop playsinline width="100%">
+                <source src="video/web_human_shared_control.mov" type="video/mp4"/>
+              </video>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <h2 class="title is-3">Understanding Shapes through Touch</h2>
+        <p style="font-size: 18px; text-align: left">
+        To understand how touch information could be helpful, we conduct a study from a shape understanding perspective. 
+        We train a neural network to predict the object's shape from the rotation rollout. 
+        Then, we use it to predict a novel object's shape from its rotation rollout. 
+        We find that reconstructing the object's shape accurately is possible only if the touch information presents in the rollout.
+        <br>
+        <br>
+        </p> 
+        <div class="content has-text-justified">
+          <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+            <div class="column has-text-centered">
+              <video autoplay muted loop playsinline width="70%">
+                <source src="video/web_recon.mov" type="video/mp4"/>
               </video>
             </div>
           </div>
@@ -120,9 +196,16 @@
         <div class="content has-text-justified">
           <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
             <div class="column has-text-centered">
-              <video controls width="100%">
-                <source src="video/summary_compressed.mp4" type="video/mp4"/>
-              </video>
+              <!-- <video controls width="100%">
+                <source src="video/summary_video.mp4" type="video/mp4"/>
+              </video> -->
+              <div class="videoWrapper">
+              <iframe src="https://www.youtube.com/embed/TGOB_6ZSc2s" title="YouTube video player" 
+              frameborder="0" allow="accelerometer; autoplay; 
+              clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+              </iframe>
+              </div>
+
             </div>
           </div>
           <br>
