@@ -120,13 +120,20 @@
 <section class="hero teaser">
   <div class="columns is-centered has-text-centered">
     <div class="container is-max-desktop">
+      <!-- <div class="content has-text-justified">
+        <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+          <div class="column has-text-centered">
+            <video autoplay muted loop playsinline  width="66%">
+              <source src="video/30videos_new.mp4" type="video/mp4"/>
+            </video>
+          </div>
+        </div>
+      </div> -->
+
       <h2 class="title is-3"> Video Summary </h2>
       <div class="content has-text-justified">
         <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
           <div class="column has-text-centered">
-            <!-- <video controls width="100%">
-              <source src="video/summary_video.mp4" type="video/mp4"/>
-            </video> -->
             <div class="videoWrapper">
             <iframe src="https://www.youtube.com/embed/TGOB_6ZSc2s" frameborder="0"
             allow="autoplay; encrypted-media" allowfullscreen>
@@ -160,7 +167,7 @@
             It reveals useful contact information that may not be inferred directly from vision. 
             In fact, humans can even perform in-hand dexterous manipulation without using vision. 
             Can we enable the same ability for the multi-finger robot hand? 
-            In this paper, we propose to perform in-hand object rotation using only touching without seeing the object. 
+            In this paper, we present <b>Touch Dexterity</b>, a new system that can perform in-hand object rotation using only touching without seeing the object. 
             Instead of relying on precise tactile sensing in a small region, 
             we introduce a new system design using dense binary force sensors (touch or no touch) overlaying one side of the whole robot hand (palm, finger links, fingertips). 
             Such a design is low-cost, giving a larger coverage of the object, and minimizing the Sim2Real gap at the same time.
@@ -185,6 +192,28 @@
           <br>
           <div class="columns is-centered" style="background: #FDFFFF;">
             <img src="./static/images/teaser.png" alt="teaser">
+          </div>
+          <br>
+        </div>
+
+        <h2 class="title is-3">Hardware</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 18px; text-align: left">
+            Our tactile perception system consists 16 low-cost force-sensing resistor (FSR) sensors. The touch sensing array can 
+            provide feedback on critical hand-object contacts and help the hand understand the shape, 
+            ensuring the success of complex in-hand object manipulation.
+          </p>
+          <br>
+          <br>
+          <div class="content has-text-justified">
+            <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+              <div class="column has-text-centered">
+                <video autoplay muted loop playsinline width="100%">
+                  <source src="video/web_hardware.mp4" type="video/mp4"/>
+                </video>
+              </div>
+            </div>
+            <br>
           </div>
           <br>
         </div>
