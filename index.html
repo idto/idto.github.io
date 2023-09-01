@@ -132,9 +132,19 @@
         <div class="container is-max-desktop">
           <div class="content has-text-justified">
             <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
-              <div class="column has-text-centered">
-                <video autoplay muted loop playsinline  width="90%">
-                  <source src="video/bimanual_with_targets.mp4" type="video/mp4"/>
+              <div>
+                <video autoplay muted loop playsinline  width="98%">
+                  <source src="video/bimanual_push.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div>
+                <video autoplay muted loop playsinline  width="98%">
+                  <source src="video/bimanual_lift.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div>
+                <video autoplay muted loop playsinline  width="98%">
+                  <source src="video/bimanual_balance.mp4" type="video/mp4"/>
                 </video>
               </div>
             </div>
@@ -155,7 +165,7 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              Robots must make and break contact to per-form useful work, but trajectory optimization through
+              Robots must make and break contact to perform useful work, but trajectory optimization through
               contact is notoriously difficult. In this paper, we achieve
               real-time contact-implicit model predictive control with a
               surprisingly simple method: <b>inverse dynamics trajectory
@@ -177,9 +187,9 @@
             <h2 class="title is-3">Toy Problems</h2>
             <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              IDTO can be used as an offline trajectory planning tool. Contact
-              timings, sequences, and locations are determined automatically by
-              the solver. 
+              IDTO can be used as an offline trajectory planning tool. The user
+              specifies a (quadratic) cost defining the desired behavior. Contact
+              timings, sequences, and locations are then determined by the solver. 
               </p>
               <br>
               <br>
@@ -196,8 +206,8 @@
               </div>
               <br>
               <p style="font-size: 18px; text-align: left">
-              Contact-implicit MPC runs in real time at over 100 Hz for these
-              simple examples.
+              IDTO also enables feedback control via Model Predictive Control (MPC).
+              Contact-implicit MPC runs in real time at over 100 Hz for these simple examples.
               </p>
               <br>
               <br>
@@ -218,8 +228,8 @@
             <h2 class="title is-3">Dextrous Manipulation</h2>
             <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              IDTO can design a dynamically feasible trajectory even when the
-              hand is upside down &mdash; something that reinforcement learning
+              IDTO can design a dynamically feasible trajectory even when is
+              Allegro hand is upside down &mdash; something that reinforcement learning
               methods struggle with.
               </p>
               <br>
