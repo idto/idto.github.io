@@ -8,7 +8,7 @@
     <meta name="keywords" content="robotics, optimizaiton, manipulation, locomotion">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-      Rotating without Seeing
+      IDTO: Inverse Dynamics Trajectory Optimization
     </title>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
@@ -87,7 +87,6 @@
                 <br>
                 <br>
 
-
                 <div class="is-size-5 publication-authors">
                   <span class="author-block"><sup>1</sup>University of Notre
                     Dame</span> <br>
@@ -111,6 +110,15 @@
                     <span>Video</span>
                   </a>
                 </span>
+                
+                <span class="link-block">
+                  <a href="UPDATE ME" target="_blank" class="external-link button is-normal is-rounded is-dark"  style="text-decoration: none">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
 
               </div>
             </div>
@@ -126,26 +134,18 @@
             <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
               <div class="column has-text-centered">
                 <video autoplay muted loop playsinline  width="90%">
-                  <source src="video/web_30video_title.mp4" type="video/mp4"/>
+                  <source src="video/bimanual_with_targets.mp4" type="video/mp4"/>
                 </video>
               </div>
             </div>
           </div>
-          We present <b>Touch Dexterity</b>, a new system that can perform in-hand object rotation using only touching without seeing the object. 
-
+          We present <b>IDTO (Inverse Dynamics Trajectory Optimization)</b>, a
+          fast solver for optimization through contact in 
+          <a href="https://drake.mit.edu" target="_blank">Drake</a>.
           <br>
-
-
-          <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-            <source src="video/web_12video_title.mov" type="video/mp4"/>
-            </video> -->
-            <!-- <p style="font-size: 18px; text-align: center">
-              We present a new dexterous manipulation system design and learning pipeline for in-hand rotation using only touch. Our system is able to rotate various real-world objects around different axes without seeing them. Video speed is 1x.
-              </p> -->
         </div>
       </div>
     </section>
-
 
     <section class="section">
       <div class="container is-max-desktop">
@@ -155,244 +155,137 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              Tactile information plays a critical role in human dexterity. 
-              It reveals useful contact information that may not be inferred directly from vision. 
-              In fact, humans can even perform in-hand dexterous manipulation without using vision. 
-              Can we enable the same ability for the multi-finger robot hand? 
-              In this paper, we present <b>Touch Dexterity</b>, a new system that can perform in-hand object rotation using only touching without seeing the object. 
-              Instead of relying on precise tactile sensing in a small region, 
-              we introduce a new system design using dense binary force sensors (touch or no touch) overlaying one side of the whole robot hand (palm, finger links, fingertips). 
-              Such a design is low-cost, giving a larger coverage of the object, and minimizing the Sim2Real gap at the same time.
-              We train an in-hand rotation policy using Reinforcement Learning on diverse objects in simulation. 
-              Relying on touch-only sensing, we can directly deploy the policy in a real robot hand and rotate novel objects that are not presented in training. 
-              Extensive ablations are performed on how tactile information help in-hand manipulation. 
+              Robots must make and break contact to per-form useful work, but trajectory optimization through
+              contact is notoriously difficult. In this paper, we achieve
+              real-time contact-implicit model predictive control with a
+              surprisingly simple method: <b>inverse dynamics trajectory
+                optimization</b>. While trajectory optimization with inverse
+              dynamics is not new, we develop a number of small innovations that 
+              together enable fast model predictive control on a
+              variety of challenging manipulation and locomotion tasks.
+              We implement these innovations in an open-source solver,
+              and present a variety of simulation examples to support
+              the effectiveness of the proposed approach. Additionally,
+              we demonstrate contact-implicit model predictive control
+              on hardware at over 100 Hz for a 20 degree-of-freedom
+              bi-manual manipulation task.
               </p>
               <br>
               <br>
             </div>
-            <h2 class="title is-3"> Video </h2>
-            <div class="content has-text-justified">
-              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
-                <div class="column has-text-centered">
-                  <div class="videoWrapper">
-                    <iframe src="https://www.youtube.com/embed/TGOB_6ZSc2s" frameborder="0"
-                                                                            allow="autoplay; encrypted-media" allowfullscreen>
-                    </iframe>
-                  </div>
 
-                </div>
-              </div>
-            </div>
-            <br>
-
-            <h2 class="title is-3">Touch-only Dexterous Manipulation System</h2>
+            <h2 class="title is-3">Toy Problems</h2>
             <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              We present a new dexterous manipulation system design and learning pipeline for in-hand rotation using only touch. 
-              Our system is able to rotate various real-world objects around different axes without seeing them.
-              The hardware is consisted of an Allegro robotic hand with 16 low-cost force-sensing resistor (FSR) sensors. 
-              We train a control policy to rotate multiple objects in the simulation through RL. 
-              Then the learned policy can directly transfer to the real and generalize to unseen, novel objects.
+              IDTO can be used as an offline trajectory planning tool. Contact
+              timings, sequences, and locations are determined automatically by
+              the solver. 
               </p>
               <br>
               <br>
-              <div class="columns is-centered" style="background: #FDFFFF;">
-                <img src="./static/images/teaser.png" alt="teaser">
+              <div class="columns is-centered" style="background: #FDFFFF">
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
               </div>
               <br>
-            </div>
-
-            <h2 class="title is-3">Hardware</h2>
-            <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              Our tactile perception system consists 16 low-cost force-sensing resistor (FSR) sensors. The touch sensing array can 
-              provide feedback on critical hand-object contacts and help the hand understand the shape, 
-              ensuring the success of complex in-hand object manipulation.
+              Contact-implicit MPC runs in real time at over 100 Hz for these
+              simple examples.
               </p>
               <br>
               <br>
-              <div class="content has-text-justified">
-                <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
-                  <div class="column has-text-centered">
-                    <video autoplay muted loop playsinline width="100%">
-                      <source src="video/web_hardware.mp4" type="video/mp4"/>
-                    </video>
-                  </div>
+              <div class="columns is-centered" style="background: #FDFFFF">
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
                 </div>
-                <br>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
               </div>
               <br>
             </div>
-
-            <h2 class="title is-3">In-hand Object Rotation In The Dark</h2>
-            <p style="font-size: 18px; text-align: left">
-            Since our system does not rely on vision, it can perform in-hand manipulation in the dark. 
-            This offers great advantage for the application of dexterous manipulation system in complex real-world scenarios, where obtaining reliable visual input is hard.
-            <br>
-            <br>
-            <p style="font-size: 18px; text-align: left">  
+            
+            <h2 class="title is-3">Dextrous Manipulation</h2>
             <div class="content has-text-justified">
-              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
-                <div class="column has-text-centered">
-                  <video controls autoplay muted loop playsinline width="100%">
-                    <source src="video/web_light_demo.mp4" type="video/mp4"/>
-                  </video>
-                </div>
-              </div>
-              <br>
-            </div>
-            <h2 class="title is-3">Rotating Different Objects</h2>
-            <p style="font-size: 18px; text-align: left">
-            Our system is able to rotate a large variety of real-world objects around different axes. Some examples are shown below.
-            </p>
-            <div class="container is-max-desktop">
-              <div id="x-axis" class="carousel results-carousel">
-                <div class="item">
-                  <video poster="" id="x1" autoplay muted playsinline loop height="100%">
-                    <source src="video/items/x1ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="x2" autoplay muted playsinline loop height="100%">
-                    <source src="video/items/x2ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="x3" autoplay muted playsinline loop height="100%">
-                    <source src="video/items/x3ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="x4" autoplay muted playsinline loop height="100%">
-                    <source src="video/items/x4ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-              </div>
-              <br>
-              <div id="y-axis" class="carousel results-carousel">
-
-                <div class="item">
-                  <video poster="" id="y1" autoplay  muted playsinline loop height="100%">
-                    <source src="video/items/y1ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="y2" autoplay  muted loop height="100%">
-                    <source src="video/items/y2ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="y3" autoplay muted loop height="100%">
-                    <source src="video/items/y3ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="y4" autoplay  muted loop height="100%">
-                    <source src="video/items/y4ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-
-              </div>
-              <br>
-              <div id="z-axis" class="carousel results-carousel">
-                <div class="item">
-                  <video poster="" id="z1" autoplay  muted playsinline loop height="100%">
-                    <source src="video/items/z1ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="z2" autoplay  muted loop height="100%">
-                    <source src="video/items/z2ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="z3" autoplay muted loop height="100%">
-                    <source src="video/items/z3ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="item">
-                  <video poster="" id="z4" autoplay  muted loop height="100%">
-                    <source src="video/items/z4ccs.mp4" type="video/mp4">
-                  </video>
-                </div>
-
-              </div>
-              <br>
-              <br>
-            </div>
-
-            <h2 class="title is-3">Enabling Human-Shared Control</h2>
-            <p style="font-size: 18px; text-align: left">
-            Combining various learned object rotation primitives, our system naturally provides a convenient human-shared control interface. 
-            In the following example, a human operator uses a keyboard to control our system to reorient an object.
-            <br>
-            <br>
-            </p>  
-            <div class="content has-text-justified">
-              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
-                <div class="column has-text-centered">
-                  <video controls autoplay muted loop playsinline width="100%">
-                    <source src="video/web_human_shared_control.mp4" type="video/mp4"/>
-                  </video>
-                </div>
-              </div>
-              <br>
-            </div>
-
-            <h2 class="title is-3">Understanding Shapes through Touch</h2>
-            <p style="font-size: 18px; text-align: left">
-            To understand how touch information could be helpful, we conduct a study from a shape understanding perspective. 
-            We train a neural network to predict the object's shape from the rotation rollout. 
-            Then, we use it to predict a novel object's shape from its rotation rollout. 
-            We find that reconstructing the object's shape accurately is possible only if the touch information presents in the rollout.
-            <br>
-            <br>
-            </p> 
-            <div class="content has-text-justified">
-              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
-                <div class="column has-text-centered">
-                  <video  controls  autoplay muted loop playsinline width="70%">
-                    <source src="video/web_recon.mp4" type="video/mp4"/>
-                  </video>
-                </div>
-              </div>
-              <br>
-            </div>
-
-            <!-- <h2 class="title is-3">Conclusion</h2>
               <p style="font-size: 18px; text-align: left">
-              We have presented a tactile manipulation system that is able to rotate different objects without vision. 
-              We showed an end-to-end RL framework to learn tactile dexterity over the proposed system. 
-              We carried out experiments both in simulation and real to demonstrate its effectiveness. 
-              Our work demonstrated that we are able to achieve tactile dexterity as humans in real for the first time. 
-              In the future, there are many promising future directions to investigate, such as exploring the use of a more dense contact sensor array and scaling up the system to solve more diverse tasks.
-              We hope that our work can pave the way for more intelligent robot hands.
+              IDTO can design a dynamically feasible trajectory even when the
+              hand is upside down &mdash; something that reinforcement learning
+              methods struggle with.
+              </p>
               <br>
               <br>
-              </p>  -->
-              <h2 class="title is-3">Media Coverage</h2>
-              <!-- <h3>Image Button</h1> -->
-              <a href="https://www.scientificamerican.com/article/new-robot-hand-works-by-feel-not-sight/">
-                <img src="static/images/media/scientific_american.png" alt="Button Image" style="max-height: 100px;">
-              </a>
-
-              <a href="https://cosmosmagazine.com/technology/robotics/robot-hands-touch/">
-                <img src="static/images/media/cosmos.jpeg" alt="Button Image" style="max-height: 100px;">
-              </a>
-
-              <a href="https://techxplore.com/news/2023-07-robotic-rotates-vision.html">
-                <img src="static/images/media/techxplore.png" alt="Button Image" style="max-height: 100px;">
-              </a>
-
-              <a href="https://today.ucsd.edu/story/robotic-hand-rotates-objects-using-touch-not-vision">
-                <img src="static/images/media/ucsd.png" alt="Button Image" style="max-height: 100px;">
-              </a>
-
-              <a href="https://www.unite.ai/a-new-dawn-in-robotics-touch-based-object-rotation/">
-                <img src="static/images/media/uniteai.png" alt="Button Image" style="max-height: 100px;">
-              </a>
-
-
+              <div class="columns is-centered" style="background: #FDFFFF">
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+              </div>
+              <br>
+              <p style="font-size: 18px; text-align: left">
+              Model predictive control runs in real time at about 10 Hz. The planner
+              uses a smooth contact model that allows force at a distance, while
+              the simulator uses the more realistic hydroelastic contact model. 
+              </p>
+              <br>
+              <br>
+              <div class="columns is-centered" style="background: #FDFFFF">
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+              </div>
+              <br>
+            </div>
+            
+            <h2 class="title is-3">Legged Locomotion</h2>
+            <div class="content has-text-justified">
+              <p style="font-size: 18px; text-align: left">
+              Real-time model predictive control runs at about 60 Hz for a
+              quadruped in simulation. We don't specify a desired gait or a
+              preferred contact sequence. The solver chooses when and where to
+              make contact on the fly: trotting emerges automatically.
+              </p>
+              <br>
+              <br>
+              <div class="columns is-centered" style="background: #FDFFFF">
+                <div style="padding: 5px;">
+                  <img src="./static/images/mini_cheetah_mpc.gif" alt="acrobot">
+                </div>
+              </div>
+              <br>
+              <p style="font-size: 18px; text-align: left">
+              The robot stops automatically when it reaches the edge of a
+              platform, even though the cost function says to keep going. 
+              </p>
+              <br>
+              <br>
+              <div class="columns is-centered" style="background: #FDFFFF">
+                <div style="padding: 5px;">
+                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                </div>
+              </div>
+              <br>
+            </div>
           </div>
         </div>
     </section>
@@ -401,10 +294,9 @@
       <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
         <pre><code>
-    @article{touch-dexterity,
-      title          = {Rotating without Seeing: Towards In-hand Dexterity through Touch },
-      author         = {Yin, Zhao-Heng and Huang, Binghao and Qin, Yuzhe and Chen, Qifeng and Wang, Xiaolong},
-      journal        = {Robotics: Science and Systems},
+    @article{kurtz2023inverse,
+      title          = {Inverse Dynamics Trajectory Optimization for Contact-Implicit Model Predictive Control},
+      author         = {Kurtz, Vince and Castro, Alejandro and \"{O}nol, Aykut \"{O}zg\"{u}n and Lin, Hai}
       year           = {2023},
     }
         </code></pre>
