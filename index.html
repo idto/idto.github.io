@@ -246,49 +246,69 @@
             <h2 class="title is-3">Dextrous Manipulation</h2>
             <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              IDTO can design a dynamically feasible trajectory even when is
+              IDTO can design a dynamically feasible trajectory even when this
               Allegro hand is upside down &mdash; something that reinforcement learning
               methods struggle with.
               </p>
               <br>
               <br>
-              <div class="columns is-centered" style="background: #FDFFFF">
-                <div style="padding: 5px;">
-                  <img src="./static/images/acrobot.gif" alt="acrobot">
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/allegro_rightside_up.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Rightside
+                    up (open loop)</em></p>
                 </div>
-                <div style="padding: 5px;">
-                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/allegro_upside_down.mp4" type="video/mp4"/>
+                  </video>
+                  <p style="font-size: 18px; text-align: center"><em>Upside down
+                  (open loop)</em></p>
                 </div>
               </div>
               <br>
               <p style="font-size: 18px; text-align: left">
               Model predictive control runs in real time at about 10 Hz. The planner
               uses a smooth contact model that allows force at a distance, while
-              the simulator uses the more realistic hydroelastic contact model. 
+              the simulator uses a more realistic <a
+                href=https://drake.mit.edu/doxygen_cxx/group__hydroelastic__user__guide.html
+                                                    target=_blank>
+                hydroelastic contact model</a>. 
               </p>
               <br>
               <br>
-              <div class="columns is-centered" style="background: #FDFFFF">
-                <div style="padding: 5px;">
-                  <img src="./static/images/acrobot.gif" alt="acrobot">
+              <div class="columns is-centered interpolation-panel" style="background: #FDFFFF;">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/allegro_rotation_one.mp4" type="video/mp4"/>
+                  </video>
                 </div>
-                <div style="padding: 5px;">
-                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/allegro_rotation_two.mp4" type="video/mp4"/>
+                  </video>
                 </div>
-                <div style="padding: 5px;">
-                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/allegro_rotation_three.mp4" type="video/mp4"/>
+                  </video>
                 </div>
-                <div style="padding: 5px;">
-                  <img src="./static/images/acrobot.gif" alt="acrobot">
+                <div>
+                  <video autoplay muted loop playsinline  width="98%">
+                    <source src="video/allegro_rotation_four.mp4" type="video/mp4"/>
+                  </video>
                 </div>
               </div>
+              <p style="font-size: 18px; text-align: center"><em>Real-time MPC</em></p>
               <br>
             </div>
             
             <h2 class="title is-3">Legged Locomotion</h2>
             <div class="content has-text-justified">
               <p style="font-size: 18px; text-align: left">
-              Real-time model predictive control runs at about 60 Hz for a
+              Contact-implicit MPC runs at about 60 Hz for a
               quadruped in simulation. We don't specify a desired gait or a
               preferred contact sequence. The solver chooses when and where to
               make contact on the fly: trotting emerges automatically.
@@ -296,9 +316,9 @@
               <br>
               <br>
               <div class="columns is-centered" style="background: #FDFFFF">
-                <div style="padding: 5px;">
-                  <img src="./static/images/mini_cheetah_mpc.gif" alt="acrobot">
-                </div>
+                <video autoplay muted loop playsinline  width="98%">
+                  <source src="video/mini_cheetah.mp4" type="video/mp4"/>
+                </video>
               </div>
               <br>
               <p style="font-size: 18px; text-align: left">
@@ -308,9 +328,9 @@
               <br>
               <br>
               <div class="columns is-centered" style="background: #FDFFFF">
-                <div style="padding: 5px;">
-                  <img src="./static/images/acrobot.gif" alt="acrobot">
-                </div>
+                <video autoplay muted loop playsinline  width="98%">
+                  <source src="video/mini_cheetah_edge.mp4" type="video/mp4"/>
+                </video>
               </div>
               <br>
             </div>
