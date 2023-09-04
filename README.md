@@ -1,6 +1,8 @@
 # Project Website for Inverse Dynamics Trajectory Optimization (IDTO)
 
-Based on [TouchDexterity.github.io](https://touchdexterity.github.io)
+Online at [idto.github.io](https://idto.github.io).
+
+Based on [TouchDexterity.github.io](https://touchdexterity.github.io).
 
 ## Local Testing
 
